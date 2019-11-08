@@ -15,7 +15,7 @@ class App extends Component {
 class Header extends Component {
   render() {
     return (
-      <div>Yoda
+      <div>Eric Hamlin
         <MainMenu/>
       </div>
 
