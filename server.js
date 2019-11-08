@@ -30,7 +30,7 @@ let schema = buildSchema(`
       thumbnail: Image
       date: String
       dimensions: String
-      medium: String
+      media: String
       images: [Image]
       project: Project
     }
@@ -59,6 +59,9 @@ class Piece {
     this.title = options.title;
     this.description = options.description;
     this.thumbnail = new Thumbnail(options.thumbnailPath);
+    this.date = options.date;
+    this.dimensions = options.dimensions;
+    this.media = options.media;
     this.images = [];
   }
 
@@ -134,7 +137,10 @@ connection.query(sql, (error, pieces, fields) => {
       allPieces[pieceData.piece_id] = piece = new Piece({
         title:         pieceData.title,
         description:   pieceData.description,
-        thumbnailPath: pieceData.thumbnail_path
+        thumbnailPath: pieceData.thumbnail_path,
+        date:          pieceData.date_created,
+        dimensions:    pieceData.dimensions,
+        media:         pieceData.media
       });
     }
 
