@@ -1,4 +1,5 @@
 /.idea
 /node_modules
+*/portfolio_images
 *.iml
 config.js
