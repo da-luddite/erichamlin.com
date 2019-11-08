@@ -8,4 +8,8 @@ body {
   font-family: Cormorant, serif;
 }
 
+#header {
+    height: 300px;
+}
+
 

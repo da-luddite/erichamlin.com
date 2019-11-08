@@ -6,6 +6,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header/>
+        <MainMenu/>
         <Main/>
       </div>
     );
@@ -15,8 +16,8 @@ class App extends Component {
 class Header extends Component {
   render() {
     return (
-      <div>Eric Hamlin
-        <MainMenu/>
+      <div id='header'>
+        Eric Hamlin
       </div>
 
     );
@@ -45,7 +46,11 @@ class Main extends Component {
 class SideMenu extends Component {
   render() {
     return (
-      <div>Sidemenu</div>
+      <div>
+        <div>2019</div>
+        <div>2018</div>
+        <div>etc.</div>
+      </div>
   )
   }
 }
