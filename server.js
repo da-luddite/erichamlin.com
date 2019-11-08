@@ -55,14 +55,12 @@ let schema = buildSchema(`
 let allPieces = [];
 
 class Piece {
-  constructor(title, description, thumbnail) {
-    this.title = title;
-    this.description = description;
-    this.thumbnail = new Thumbnail(thumbnail);
+  constructor(options) {
+    this.title = options.title;
+    this.description = options.description;
+    this.thumbnail = new Thumbnail(options.thumbnailPath);
     this.images = [];
   }
-
-
 
   addImage(path, description) {
     this.images.push(new DisplayImage(path, description))
@@ -103,7 +101,6 @@ connection.connect(err => {
 });
 
 
-//CONVERT(pieces.thumbnail USING utf8)
 let sql = `
   SELECT pieces.*, 
     projects.project_title, 
@@ -113,7 +110,7 @@ let sql = `
     clients.client_name,
     clients.client_sequence,
     images.image_id,
-    images.image,
+    images.image_path,
     images.image_description,
     images.image_sequence
   FROM erichamlin_pieces pieces
@@ -134,11 +131,15 @@ connection.query(sql, (error, pieces, fields) => {
       piece = allPieces[pieceData.id];
     }
     else {
-      allPieces[pieceData.piece_id] = piece = new Piece(pieceData.title, pieceData.description, pieceData.thumbnail);
+      allPieces[pieceData.piece_id] = piece = new Piece({
+        title:         pieceData.title,
+        description:   pieceData.description,
+        thumbnailPath: pieceData.thumbnail_path
+      });
     }
 
-    if (pieceData.image) {
-      piece.addImage(pieceData.image)
+    if (pieceData.image_path) {
+      piece.addImage(pieceData.image_path)
     }
   }
 });

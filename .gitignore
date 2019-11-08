@@ -1,4 +1,4 @@
 /.idea
 /node_modules
-erichamlin.com_2019.iml
+*.iml
 config.js
