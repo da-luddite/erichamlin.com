@@ -12,4 +12,12 @@ body {
     height: 300px;
 }
 
+#signature {
+    background-color: #040a19;
+}
+
+#signature div {
+    mix-blend-mode: overlay;
+}
+
 
