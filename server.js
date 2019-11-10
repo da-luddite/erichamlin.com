@@ -1,6 +1,7 @@
 let express = require('express');
 let config = require('./config');
 const mysql = require('mysql');
+var cors = require('cors');
 let express_graphql = require('express-graphql');
 let { buildSchema } = require('graphql');
 
@@ -152,6 +153,7 @@ connection.query(sql, (error, pieces, fields) => {
 
 // Create an express server and a GraphQL endpoint
 let app = express();
+app.use(cors());
 app.use('/graphql', express_graphql({
   schema: schema,
   rootValue: root,

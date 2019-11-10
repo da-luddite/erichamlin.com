@@ -1,35 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-
 import reducers from './reducers.js';
-import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
-import { useQuery } from '@apollo/react-hooks';
+import { switchPageAction } from "./actions.js";
+import { createStore } from 'redux';
+import './queries.js';
 
-const Q = gql`
-  {
-    pieces {
-      title
-      description
-      date
-      dimensions
-      media
-      thumbnail { 
-        url 
-      }
-      images {
-        url 
-        description
-      }
-    }
-  }
-`;
+const store = createStore(reducers);
 
-const runQuery = useQuery(Q);
 
-class App extends Component {
-
+class App extends Component  {
   constructor(props) {
     super(props);
     this.state = {
@@ -82,7 +61,7 @@ class MainMenu extends Component {
 class MenuButton extends Component {
   render() {
     return (
-      <button onClick={() => this.props.onClick(this.props.selection)}>{this.props.selection}</button>
+      <button onClick={() => store.dispatch(switchPageAction(this.props.selection))}>{this.props.selection}</button>
     )
   }
 }
