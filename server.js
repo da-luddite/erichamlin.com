@@ -131,8 +131,8 @@ connection.query(sql, (error, pieces, fields) => {
   for (let idx in pieces) {
     let piece;
     let pieceData = pieces[idx];
-    if (allPieces[pieceData.id]) {
-      piece = allPieces[pieceData.id];
+    if (allPieces[pieceData.piece_id]) {
+      piece = allPieces[pieceData.piece_id];
     }
     else {
       allPieces[pieceData.piece_id] = piece = new Piece({

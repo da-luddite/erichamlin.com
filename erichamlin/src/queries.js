@@ -1,9 +1,8 @@
 import graphql from 'graphql.js';
 
+const graph = graphql("http://localhost:4000/graphql", {});
 
-var graph = graphql("http://localhost:4000/graphql", {});
-
-const Q = `
+const allPiecesQuery = `
   query {
     pieces {
       title
@@ -22,10 +21,7 @@ const Q = `
   }
 `;
 
-graph.query.run(Q).then(function (response) {
-  // response is originally response.data of query result
-  console.log(response)
-}).catch(function (error) {
-  // response is originally response.errors of query result
-  console.log(error)
-});
+export function queryAllPieces() {
+  return graph.query.run(allPiecesQuery);
+}
+

@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+
 import { SWITCH_PAGE } from "./actions.js";
 
 const initialState = {page: 'new'};

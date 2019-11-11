@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
 import './App.css';
 import reducers from './reducers.js';
-import { switchPageAction } from "./actions.js";
+import { switchPageAction, storePiecesAction } from "./actions.js";
 import { createStore } from 'redux';
-import './queries.js';
+import { queryAllPieces } from './queries.js';
 
 const store = createStore(reducers);
+
+queryAllPieces().then(function (response) {
+  // response is originally response.data of query result
+  for (let x in response) {
+    console.log(response[x]);
+  }
+}).catch(function (error) {
+  // response is originally response.errors of query result
+  console.log(error)
+});
 
 
 class App extends Component  {
@@ -16,16 +26,12 @@ class App extends Component  {
     };
   }
 
-  handleMenuSelection(selection) {
-    console.log(selection);
-    this.setState({selectedSection: selection});
-  }
 
   render() {
     return (
       <div className="App">
         <Header/>
-        <MainMenu onClick={(selection) => this.handleMenuSelection(selection)}/>
+        <MainMenu/>
         <Main/>
       </div>
     );
@@ -49,9 +55,9 @@ class MainMenu extends Component {
   render() {
     return (
       <div>
-        <MenuButton onClick={this.props.onClick} selection={"new"}/>
-        <MenuButton onClick={this.props.onClick} selection={"categories"}/>
-        <MenuButton onClick={this.props.onClick} selection={"bio"}/>
+        <MenuButton selection={"new"}/>
+        <MenuButton selection={"categories"}/>
+        <MenuButton selection={"bio"}/>
         <button>Sketch/Blog</button>
       </div>
     );
