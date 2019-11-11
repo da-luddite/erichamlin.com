@@ -1,37 +1,23 @@
 import React, { Component } from 'react';
 import './App.css';
-import reducers from './reducers.js';
-import { switchPageAction, storePiecesAction } from "./actions.js";
-import { createStore } from 'redux';
-import { queryAllPieces } from './queries.js';
+import { switchPageActionWithDispatch } from "./actions.js";
 
-const store = createStore(reducers);
-
-queryAllPieces().then(function (response) {
-  // response is originally response.data of query result
-  store.dispatch(storePiecesAction(response.pieces));
-}).catch(function (error) {
-  // response is originally response.errors of query result
-  console.log(error)
-});
+import { Provider } from 'react-redux';
+import store from './store.js';
+import SideMenu from './SideMenu.js';
 
 
 class App extends Component  {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedSection: 'new'
-    };
-  }
-
 
   render() {
     return (
-      <div className="App">
-        <Header/>
-        <MainMenu/>
-        <Main/>
-      </div>
+      <Provider store={store}>
+        <div className="App">
+          <Header/>
+          <MainMenu/>
+          <Main/>
+        </div>
+        </Provider>
     );
   }
 }
@@ -65,7 +51,7 @@ class MainMenu extends Component {
 class MenuButton extends Component {
   render() {
     return (
-      <button onClick={() => store.dispatch(switchPageAction(this.props.selection))}>{this.props.selection}</button>
+      <button onClick={() => switchPageActionWithDispatch(this.props.selection)}>{this.props.selection}</button>
     )
   }
 }
@@ -81,23 +67,14 @@ class Main extends Component {
   }
 }
 
-class SideMenu extends Component {
-  render() {
-    return (
-      <div>
-        <div>2019</div>
-        <div>2018</div>
-        <div>etc.</div>
-      </div>
-  )
-  }
-}
+
+
 
 class Content extends Component {
   render() {
     return (
       <div>Content</div>
-  )
+    )
   }
 }
 

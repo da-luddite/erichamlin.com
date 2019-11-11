@@ -62,7 +62,7 @@ class Piece {
     this.title = options.title;
     this.description = options.description;
     this.thumbnail = new Thumbnail(options.thumbnailPath);
-    this.dateCreated = options.dateCreated;
+    this.dateCreated = (new Date(options.dateCreated)).getTime();
     this.dimensions = options.dimensions;
     this.media = options.media;
     this.category = options.category;
