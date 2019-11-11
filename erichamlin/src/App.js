@@ -9,9 +9,7 @@ const store = createStore(reducers);
 
 queryAllPieces().then(function (response) {
   // response is originally response.data of query result
-  for (let x in response) {
-    console.log(response[x]);
-  }
+  store.dispatch(storePiecesAction(response.pieces));
 }).catch(function (error) {
   // response is originally response.errors of query result
   console.log(error)

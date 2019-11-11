@@ -5,11 +5,13 @@ const graph = graphql("http://localhost:4000/graphql", {});
 const allPiecesQuery = `
   query {
     pieces {
+      pieceId
       title
       description
-      date
       dimensions
       media
+      dateCreated
+      category
       thumbnail { 
         url 
       }

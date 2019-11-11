@@ -25,12 +25,13 @@ let schema = buildSchema(`
     }
     
     type Piece {
-      id: Int
+      pieceId: Int
       title: String
       description: String
       thumbnail: Image
-      date: String
+      dateCreated: String
       dimensions: String
+      category: String
       media: String
       images: [Image]
       project: Project
@@ -57,12 +58,14 @@ let allPieces = [];
 
 class Piece {
   constructor(options) {
+    this.pieceId = options.pieceId;
     this.title = options.title;
     this.description = options.description;
     this.thumbnail = new Thumbnail(options.thumbnailPath);
-    this.date = options.date;
+    this.dateCreated = options.dateCreated;
     this.dimensions = options.dimensions;
     this.media = options.media;
+    this.category = options.category;
     this.images = [];
   }
 
@@ -136,11 +139,13 @@ connection.query(sql, (error, pieces, fields) => {
     }
     else {
       allPieces[pieceData.piece_id] = piece = new Piece({
+        pieceId:       pieceData.piece_id,
         title:         pieceData.title,
         description:   pieceData.description,
         thumbnailPath: pieceData.thumbnail_path,
-        date:          pieceData.date_created,
+        dateCreated:   pieceData.date_created,
         dimensions:    pieceData.dimensions,
+        category:      pieceData.category,
         media:         pieceData.media
       });
     }
