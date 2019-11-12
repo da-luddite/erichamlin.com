@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import './index.css';
 
 import { storePiecesActionWithDispatch } from "./actions.js";
-import {queryAllPieces} from './queries.js';
+import { queryAllPieces } from './queries.js';
+
+import App from './components/App';
 
 
 

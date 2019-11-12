@@ -39,13 +39,6 @@ function SideMenu(props) {
   }
 }
 
-function mappin(state) {
-  console.log("mapping");
-  return {
-    page: state.switchPage.page
-  }
-}
-
 export default connect((state) => {
   return {
     pieces: state.storePieces.pieces,
