@@ -6,8 +6,8 @@ function SideMenu(props) {
   if (props.page === 'new') {
     let menuItems = [];
     let currentYear = 0;
-    for (let x in props.dateIndex) {
-      let timestamp = props.pieces[props.dateIndex[x]].dateCreated;
+    for (let i in props.dateIndex) {
+      let timestamp = props.pieces[props.dateIndex[i]].dateCreated;
       let dateCreated = new Date();
       dateCreated.setTime(timestamp);
       if (dateCreated.getFullYear() != currentYear) {
@@ -22,13 +22,15 @@ function SideMenu(props) {
   )
   }
   else if (props.page === 'categories') {
+    let menuItems = [];
+    for (let category in props.categories) {
+      menuItems.push(category);
+    }
     return (
       <div>
-      <div>New</div>
-      <div>Concept</div>
-      <div>etc...</div>
-    </div>
-  )
+      {menuItems.map((item) => { return <div>{item}</div> })}
+      </div>
+    )
   }
   else {
     return (
@@ -42,6 +44,7 @@ export default connect((state) => {
     pieces: state.storePieces.pieces,
     dateIndex: state.storePieces.dateIndex,
     categoryIndex: state.storePieces.categoryIndex,
-    page: state.switchPage.page
+    page: state.switchPage.page,
+    categories: state.storePieces.categories
   }
 })(SideMenu);

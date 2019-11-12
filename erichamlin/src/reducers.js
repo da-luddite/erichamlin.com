@@ -2,7 +2,15 @@ import { combineReducers } from 'redux'
 
 import { SWITCH_PAGE, STORE_PIECES } from "./actions.js";
 
-const initialState = {page: 'new'};
+const initialState = {page: 'new', categories: {
+  'new': 0,
+  'concept': 1,
+  'storyboard': 2,
+  'illustration': 3,
+  'interactive': 4,
+  'comix': 5,
+  'other': 6
+}};
 
 function switchPage(state, action) {
   if (typeof state === 'undefined') {
@@ -19,16 +27,6 @@ function switchPage(state, action) {
   }
 }
 
-// TODO
-const categories = {
-  'new': 0,
-  'concept': 1,
-  'storyboard': 2,
-  'illustration': 3,
-  'interactive': 4,
-  'comix': 5,
-  'other': 6
-};
 
 function storePieces(state, action) {
   if (typeof state === 'undefined') {
@@ -50,7 +48,7 @@ function storePieces(state, action) {
     let categoryIndex = pieces.map((currentValue) => currentValue.pieceId);
     categoryIndex.sort((a,b) => {
       // TODO
-      return categories[pieces[a].category] - categories[pieces[b].category];
+      return state.categories[pieces[a].category] - state.categories[pieces[b].category];
     });
 
     for (let x in categoryIndex) {
