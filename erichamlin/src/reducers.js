@@ -19,7 +19,7 @@ function switchPage(state, action) {
   }
 }
 
-// TEMPORARY
+// TODO
 const categories = {
   'new': 0,
   'concept': 1,
@@ -42,25 +42,25 @@ function storePieces(state, action) {
       pieces[currentValue.pieceId] = currentValue;
     });
 
-    let newIndex = pieces.map((currentValue) => currentValue.pieceId);
-    newIndex.sort((a,b) => {
+    let dateIndex = pieces.map((currentValue) => currentValue.pieceId);
+    dateIndex.sort((a,b) => {
       return pieces[b].dateCreated - pieces[a].dateCreated;
     });
 
-    let categoriesIndex = pieces.map((currentValue) => currentValue.pieceId);
-    categoriesIndex.sort((a,b) => {
-      // TEMPORARY
+    let categoryIndex = pieces.map((currentValue) => currentValue.pieceId);
+    categoryIndex.sort((a,b) => {
+      // TODO
       return categories[pieces[a].category] - categories[pieces[b].category];
     });
 
-    for (let x in categoriesIndex) {
-      console.log(pieces[categoriesIndex[x]].category);
+    for (let x in categoryIndex) {
+      console.log(pieces[categoryIndex[x]].category);
     }
 
     return Object.assign({}, state, {
       pieces: pieces,
-      newIndex: newIndex,
-      categoriesIndex: categoriesIndex
+      dateIndex: dateIndex,
+      categoryIndex: categoryIndex
     })
   }
   else {
