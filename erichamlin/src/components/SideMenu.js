@@ -3,11 +3,15 @@ import { connect } from 'react-redux';
 
 function SideMenu(props) {
 
-  if (props.page === 'new') {
+  if (props.pieces===undefined) {
+    return (<div></div>);
+  }
+  else if (props.page === 'new') {
     let menuItems = [];
     let currentYear = 0;
-    for (let i in props.dateIndex) {
-      let timestamp = props.pieces[props.dateIndex[i]].dateCreated;
+    const pieces = props.dateIndex.map((idx) => props.pieces[idx]);
+    for (let i in pieces) {
+      let timestamp = pieces[i].dateCreated;
       let dateCreated = new Date();
       dateCreated.setTime(timestamp);
       if (dateCreated.getFullYear() != currentYear) {
@@ -44,7 +48,7 @@ export default connect((state) => {
     pieces: state.storePieces.pieces,
     dateIndex: state.storePieces.dateIndex,
     categoryIndex: state.storePieces.categoryIndex,
-    page: state.switchPage.page,
-    categories: state.storePieces.categories
+    categories: state.storePieces.categories,
+    page: state.switchPage.page
   }
 })(SideMenu);

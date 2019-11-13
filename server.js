@@ -159,6 +159,7 @@ connection.query(sql, (error, pieces, fields) => {
 // Create an express server and a GraphQL endpoint
 let app = express();
 app.use(cors());
+app.use(express.static('.'))
 app.use('/graphql', express_graphql({
   schema: schema,
   rootValue: root,
