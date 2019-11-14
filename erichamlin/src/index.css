@@ -20,4 +20,35 @@ body {
     mix-blend-mode: overlay;
 }
 
+#side-menu {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#content-area {
+    display: inline-block;
+    width: 590px;
+}
+
+.divider {
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 5px 0 5px 0;
+    margin-bottom: 10px;
+}
+
+img.thumbnail {
+    display: inline-block;
+    margin-right: 10px;
+    width: 190px;
+    height: 190px;
+}
+
+img.thumbnail:nth-child(3),
+img.thumbnail:nth-child(6) {
+    margin-right: 0px;
+}
+
 

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 function SideMenu(props) {
 
   if (props.pieces===undefined) {
-    return (<div></div>);
+    return (<div id='side-menu'></div>);
   }
   else if (props.page === 'new') {
     let menuItems = [];
@@ -20,7 +20,7 @@ function SideMenu(props) {
       currentYear = dateCreated.getFullYear();
     }
     return (
-      <div>
+      <div id='side-menu'>
         {menuItems.map((item) => { return <div>{item}</div>} )}
       </div>
   )
@@ -31,14 +31,14 @@ function SideMenu(props) {
       menuItems.push(category);
     }
     return (
-      <div>
+      <div id='side-menu'>
       {menuItems.map((item) => { return <div>{item}</div> })}
       </div>
     )
   }
   else {
     return (
-      <div>nothing here</div>
+      <div id='side-menu'>nothing here</div>
   )
   }
 }
