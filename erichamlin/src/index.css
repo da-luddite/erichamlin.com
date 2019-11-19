@@ -8,6 +8,10 @@ body {
   font-family: Cormorant, serif;
 }
 
+a {
+    cursor: pointer;
+}
+
 #root {
     text-align: center;
 }
@@ -25,18 +29,39 @@ body {
 }
 
 #header {
+    width: 800px;
     height: 300px;
     position: fixed;
     font-size: 40px;
     color: #feffc1;
+    text-align: center;
+    background-color: #040a19;
+    z-index: 10;
 }
 
-/*#signature {
-    background-color: #040a19;
-}*/
+#header div {
+    position: relative;
+    margin: 0px auto;
+}
 
-#signature div {
-    mix-blend-mode: overlay;
+#header div#signature {
+    margin-top: 10px;
+}
+
+#header div#name {
+    margin-top: -50px;
+}
+
+#main-menu {
+    margin-top: 10px;
+    width: 100%;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    font-size: 22px;
+}
+
+#main-menu a {
+    margin-right: 10px;
 }
 
 #side-menu {
@@ -62,7 +87,6 @@ body {
     width: 590px;
     position: absolute;
     right: -800px;
-    scroll-behavior: smooth;
 }
 
 .divider {

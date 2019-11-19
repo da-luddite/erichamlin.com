@@ -5,11 +5,11 @@ export default class MainMenu extends Component {
 
   render() {
     return (
-      <div>
+      <div id="main-menu">
         <MenuButton selection={"new"}/>
         <MenuButton selection={"categories"}/>
         <MenuButton selection={"bio"}/>
-        <button>Sketch/Blog</button>
+        <a>Sketch/Blog</a>
       </div>
     );
   }

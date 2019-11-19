@@ -13,11 +13,11 @@ export default class App extends Component  {
     return (
       <Provider store={store}>
         <div className="App">
-          <div id='header'>
-            <img id="signature" src="http://localhost:4000/images/site/signature.png" />
-            Eric Hamlin
+            <div id='header'>
+            <div id="signature"><img src="http://localhost:4000/images/site/signature.png" /></div>
+            <div id="name">Eric Hamlin</div>
+            <MainMenu/>
           </div>
-          <MainMenu/>
           <MainBody/>
         </div>
         </Provider>

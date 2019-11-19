@@ -4,7 +4,7 @@ import {switchPageActionWithDispatch} from '../actions.js';
 export default class MenuButton extends Component {
   render() {
     return (
-      <button onClick={() => switchPageActionWithDispatch(this.props.selection)}>{this.props.selection}</button>
+      <a onClick={() => switchPageActionWithDispatch(this.props.selection)}>{this.props.selection}</a>
     )
   }
 }
