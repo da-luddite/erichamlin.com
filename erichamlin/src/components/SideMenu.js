@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as Scroll from 'react-scroll';
+
+let Link = Scroll.Link;
 
 function SideMenu(props) {
 
@@ -21,7 +24,7 @@ function SideMenu(props) {
     }
     return (
       <div id='side-menu'>
-        {menuItems.map((item) => { return <div>{item}</div>} )}
+        {menuItems.map((item, idx) => { return <div><Link activeClass="active" to={"content-section-" + idx} offset={-300} spy={true} smooth={true}>{item}</Link></div>} )}
       </div>
   )
   }

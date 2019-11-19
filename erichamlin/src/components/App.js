@@ -14,7 +14,7 @@ export default class App extends Component  {
       <Provider store={store}>
         <div className="App">
           <div id='header'>
-            <div id="signature"><div>Signature image</div></div>
+            <img id="signature" src="http://localhost:4000/images/site/signature.png" />
             Eric Hamlin
           </div>
           <MainMenu/>

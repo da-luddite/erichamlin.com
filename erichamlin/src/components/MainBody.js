@@ -6,7 +6,7 @@ import ContentArea from './ContentArea.js';
 export default class MainBody extends Component {
   render() {
     return (
-      <div>
+      <div id='main-body'>
       <SideMenu/>
       <ContentArea/>
       </div>

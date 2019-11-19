@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Thumbnail from './Thumbnail.js';
-import Divider from './Divider.js';
+import ContentSection from './ContentSection.js';
 
 function ContentArea(props) {
 
@@ -12,17 +11,24 @@ function ContentArea(props) {
     let content = [];
     const pieces = props.dateIndex.map((idx) => props.pieces[idx]);
 
+    let sectionIndex = 0;
     let currentYear = 0;
+    let sectionPieces = [];
     for (let i in pieces) {
       let timestamp = pieces[i].dateCreated;
       let dateCreated = new Date();
       dateCreated.setTime(timestamp);
       if (dateCreated.getFullYear() != currentYear) {
-        content.push(<Divider title={dateCreated.getFullYear()}/>);
+        if (currentYear!==0) {
+          content.push(<ContentSection title={currentYear} pieces={sectionPieces} sectionIndex={sectionIndex}/>);
+          sectionIndex++;
+        }
+        sectionPieces = [];
       }
+      sectionPieces.push(pieces[i]);
       currentYear = dateCreated.getFullYear();
-      content.push(<Thumbnail src={pieces[i].thumbnail.url} />);
     }
+    content.push(<ContentSection title={currentYear} pieces={sectionPieces} sectionIndex={sectionIndex}/>);
     return (
       < div id='content-area' >{
         content
@@ -33,7 +39,7 @@ function ContentArea(props) {
     let content = [];
     const pieces = props.categoryIndex.map((idx) => props.pieces[idx]);
     for (let i in pieces) {
-      content.push(<Thumbnail src={pieces[i].thumbnail.url} />);
+      //content.push(<Thumbnail src={pieces[i].thumbnail.url} />);
     }
     return (
       < div id='content-area' >{

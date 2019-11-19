@@ -8,13 +8,32 @@ body {
   font-family: Cormorant, serif;
 }
 
-#header {
-    height: 300px;
+#root {
+    text-align: center;
 }
 
-#signature {
-    background-color: #040a19;
+.App {
+    width: 800px;
+    position: relative;
+    margin: 0 auto;
 }
+
+#main-body {
+    text-align: left;
+    position: absolute;
+    top: 300px;
+}
+
+#header {
+    height: 300px;
+    position: fixed;
+    font-size: 40px;
+    color: #feffc1;
+}
+
+/*#signature {
+    background-color: #040a19;
+}*/
 
 #signature div {
     mix-blend-mode: overlay;
@@ -23,11 +42,27 @@ body {
 #side-menu {
     display: inline-block;
     vertical-align: top;
+    position: fixed;
+    top: 300px;
+    font-size: 20px;
+}
+
+#side-menu a {
+    text-decoration: none;
+    color: #fff;
+}
+
+#side-menu a:hover, #side-menu a:active, #side-menu a.active {
+    color: #feffc1;
+    font-weight: bold;
 }
 
 #content-area {
     display: inline-block;
     width: 590px;
+    position: absolute;
+    right: -800px;
+    scroll-behavior: smooth;
 }
 
 .divider {
