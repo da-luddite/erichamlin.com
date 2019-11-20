@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Cormorant&display=swap');
 
 body {
-  background-color: #040a19;
+  background-color: #101629;
   margin: 0;
   padding: 0;
   color: #fff;
@@ -32,10 +32,10 @@ a {
     width: 800px;
     height: 300px;
     position: fixed;
-    font-size: 40px;
+    font-size: 50px;
     color: #feffc1;
     text-align: center;
-    background-color: #040a19;
+    background-color: #101629;
     z-index: 10;
 }
 
@@ -48,12 +48,18 @@ a {
     margin-top: 10px;
 }
 
-#header div#name {
-    margin-top: -50px;
+#signature {
+    background-image: url("http://localhost:4000/images/site/signature.png");
+    width: 417px;
+    height: 212px;
 }
 
-#main-menu {
-    margin-top: 10px;
+#header div#name {
+    margin-top: -120px;
+}
+
+#header div#main-menu {
+    margin-top: 80px;
     width: 100%;
     border-top: 1px solid #fff;
     border-bottom: 1px solid #fff;
@@ -61,7 +67,7 @@ a {
 }
 
 #main-menu a {
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
 #side-menu {
@@ -98,15 +104,31 @@ a {
     margin-bottom: 10px;
 }
 
-img.thumbnail {
+.thumbnail {
     display: inline-block;
-    margin-right: 10px;
+    position: relative;
+    top: 0px;
+    margin: 0 10px 0 0;
     width: 190px;
     height: 190px;
+    background-color: #f00;
+    background-blend-mode: screen;
 }
 
-img.thumbnail:nth-child(3),
-img.thumbnail:nth-child(6) {
+.thumbnail img {
+    position: absolute;
+    z-index: 2;
+    left: 0px;
+    top: 0px;
+}
+
+.thumbnail img:hover {
+    mix-blend-mode: multiply;
+    opacity: 0.7;
+}
+
+.thumbnail:nth-child(4),
+.thumbnail:nth-child(7) {
     margin-right: 0px;
 }
 

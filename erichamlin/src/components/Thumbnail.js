@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 function Thumbnail(props) {
   return (
-      <img src={props.src} class='thumbnail'/>
+      <div class='thumbnail'><img src={props.src}/>{props.title}</div>
   );
 }
 

@@ -6,6 +6,7 @@ import MainMenu from './MainMenu.js';
 import MainBody from './MainBody.js';
 
 
+// ><img src="http://localhost:4000/images/site/signature.png" /></div>
 
 export default class App extends Component  {
 
@@ -14,7 +15,7 @@ export default class App extends Component  {
       <Provider store={store}>
         <div className="App">
             <div id='header'>
-            <div id="signature"><img src="http://localhost:4000/images/site/signature.png" /></div>
+            <div id="signature"/>
             <div id="name">Eric Hamlin</div>
             <MainMenu/>
           </div>
