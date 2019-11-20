@@ -4,6 +4,7 @@ import store from '../store.js';
 import { Provider } from 'react-redux';
 import MainMenu from './MainMenu.js';
 import MainBody from './MainBody.js';
+import Animations from './Animations.js';
 
 
 // ><img src="http://localhost:4000/images/site/signature.png" /></div>
@@ -21,6 +22,7 @@ export default class App extends Component  {
           </div>
           <MainBody/>
         </div>
+        <Animations/>
         </Provider>
     );
   }
