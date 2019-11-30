@@ -11,7 +11,22 @@ import Lightbox from './EricLightbox';
 
 export default function App()  {
 
-  const openPiece = (images) => {
+  const openPiece = (piece) => {
+    const images = piece.images.map((image) => {
+      return {
+        src: image.url,
+        alt: image.description,
+        caption: image.description
+      }
+    });
+
+    let description = [];
+    if (piece.media) description.push(piece.media);
+    if (piece.dimensions) description.push(piece.dimensions);
+    if (piece.description) description.push(piece.description);
+    setLightboxDescription(description.join('\n'));
+
+    setLightboxTitle(piece.title);
     setLightboxImages(images);
     setLightboxOpen(true);
   };
@@ -19,6 +34,8 @@ export default function App()  {
   const [isLightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentIndex] = useState(0);
   const [lightboxImages, setLightboxImages] = useState([]);
+  const [lightboxTitle, setLightboxTitle] = useState("Eric Hamlin");
+  const [lightboxDescription, setLightboxDescription] = useState("");
 
   return (
       <Provider store={store}>
@@ -28,15 +45,15 @@ export default function App()  {
             <div id="name">Eric Hamlin</div>
             <MainMenu/>
           </div>
-          <MainBody onClickThumbnail={(images) => openPiece(images)}/>
+          <MainBody onClickThumbnail={(piece) => openPiece(piece)}/>
           <Lightbox
             currentImageIndex={currentImageIndex}
             setCurrentIndex={setCurrentIndex}
             isOpen={isLightboxOpen}
             onClose={() => setLightboxOpen(false)}
             images={lightboxImages}
-            title="whambo"
-            description="flooblebar"
+            title={lightboxTitle}
+            description={lightboxDescription}
           />
         </div>
         <Animations/>
