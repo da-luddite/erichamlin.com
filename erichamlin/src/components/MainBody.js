@@ -3,13 +3,11 @@ import React, { Component } from 'react';
 import SideMenu from './SideMenu.js';
 import ContentArea from './ContentArea.js';
 
-export default class MainBody extends Component {
-  render() {
-    return (
+export default function MainBody(props) {
+  return (
       <div id='main-body'>
       <SideMenu/>
-      <ContentArea/>
+      <ContentArea onClickThumbnail={props.onClickThumbnail} />
       </div>
     );
-  }
 }

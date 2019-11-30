@@ -9,8 +9,7 @@ function Thumbnail(props) {
         caption: image.description
       }
     });
-    console.log(images);
-
+    props.onClick(images);
   };
 
   return (

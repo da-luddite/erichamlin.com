@@ -21,7 +21,7 @@ function ContentArea(props) {
       dateCreated.setTime(timestamp);
       if (dateCreated.getFullYear() != currentYear) {
         if (currentYear!==0) {
-          content.push(<ContentSection title={currentYear} pieces={sectionPieces} sectionIndex={sectionIndex}/>);
+          content.push(<ContentSection title={currentYear} pieces={sectionPieces} sectionIndex={sectionIndex} onClickThumbnail={props.onClickThumbnail}/>);
           sectionIndex++;
         }
         sectionPieces = [];
@@ -29,7 +29,7 @@ function ContentArea(props) {
       sectionPieces.push(pieces[i]);
       currentYear = dateCreated.getFullYear();
     }
-    content.push(<ContentSection title={currentYear} pieces={sectionPieces} sectionIndex={sectionIndex}/>);
+    content.push(<ContentSection title={currentYear} pieces={sectionPieces} sectionIndex={sectionIndex} onClickThumbnail={props.onClickThumbnail}/>);
     return (
       < div id='content-area' >{
         content

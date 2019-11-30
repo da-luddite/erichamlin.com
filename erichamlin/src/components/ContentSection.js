@@ -6,7 +6,7 @@ function ContentSection(props) {
   let content = [];
   for (let i in props.pieces) {
     let piece = props.pieces[i];
-    content.push(<Thumbnail piece={piece}/>);
+    content.push(<Thumbnail piece={piece} onClick={props.onClickThumbnail}/>);
   }
 
   return (
