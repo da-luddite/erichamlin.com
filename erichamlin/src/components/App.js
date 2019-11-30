@@ -28,7 +28,7 @@ const images = [{
 
 export default function App()  {
 
-  const [isLightboxOpen, setLightboxOpen] = useState(false);
+  const [isLightboxOpen, setLightboxOpen] = useState(true);
   const [currentImageIndex, setCurrentIndex] = useState(0);
 
   return (
@@ -46,6 +46,8 @@ export default function App()  {
             isOpen={isLightboxOpen}
             onClose={() => setLightboxOpen(false)}
             images={images}
+            title="whambo"
+            description="flooblebar"
           />
         </div>
         <Animations/>

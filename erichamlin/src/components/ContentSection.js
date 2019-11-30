@@ -5,7 +5,8 @@ import Divider from './Divider.js';
 function ContentSection(props) {
   let content = [];
   for (let i in props.pieces) {
-    content.push(<Thumbnail title={props.pieces[i].title} src={props.pieces[i].thumbnail.url}/>);
+    let piece = props.pieces[i];
+    content.push(<Thumbnail piece={piece}/>);
   }
 
   return (

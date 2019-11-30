@@ -1,15 +1,13 @@
 import React from "react";
-//import PropTypes from "prop-types";
 import styled from "styled-components";
 import { IoIosClose } from "react-icons/io";
-import Color from "color";
 import ButtonControl from "./ButtonControl";
 
-const LightboxHeader = ({ galleryTitle, images, currentIndex, onClose }) => (
+const LightboxHeader = ({ galleryTitle, gallerySubheading, images, currentIndex, onClose }) => (
   <TopHeaderBar>
     <LeftSideDescriptionContainer>
       <GalleryHeading>{galleryTitle}</GalleryHeading>
-      <GallerySubheading>{images[currentIndex].alt}</GallerySubheading>
+      <GallerySubheading>{gallerySubheading}</GallerySubheading>
     </LeftSideDescriptionContainer>
 
     <RightSideContainer>
@@ -22,18 +20,6 @@ const LightboxHeader = ({ galleryTitle, images, currentIndex, onClose }) => (
     </RightSideContainer>
   </TopHeaderBar>
 );
-
-//LightboxHeader.propTypes = {
-//  onClose: PropTypes.func.isRequired,
-//  galleryTitle: PropTypes.string.isRequired,
-//  currentIndex: PropTypes.number.isRequired,
-//  images: PropTypes.arrayOf(
-//    PropTypes.shape({
-//      src: PropTypes.string.isRequired,
-//      alt: PropTypes.string.isRequired
-//    })
-//  ).isRequired
-//};
 
 export default LightboxHeader;
 

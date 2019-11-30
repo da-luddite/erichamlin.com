@@ -15,7 +15,9 @@ const EricLightbox = ({
   currentImageIndex,
   setCurrentIndex,
   isOpen,
-  onClose
+  onClose,
+  title,
+  description
 }) => {
   const gotoPrevious = () =>
     currentImageIndex > 0 && setCurrentIndex(currentImageIndex - 1);
@@ -35,18 +37,15 @@ const EricLightbox = ({
       renderFooter={() => <Footer />}
       renderHeader={() => (
         <Header
-          galleryTitle="Dark Mode: OS Level Control In Your CSS"
+          galleryTitle={title}
           images={images}
           currentIndex={currentImageIndex}
           onClose={onClose}
+          gallerySubheading={description}
         />
       )}
       renderPrevButton={({ canPrev }) => (
-        <ArrowButton
-          position="left"
-          onClick={gotoPrevious}
-          disabled={!canPrev}
-        />
+        <ArrowButton position="left" onClick={gotoPrevious} disabled={!canPrev} />
       )}
       renderNextButton={({ canNext }) => (
         <ArrowButton position="right" onClick={gotoNext} disabled={!canNext} />
