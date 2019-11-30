@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ContentSection from './ContentSection.js';
 
+
 function ContentArea(props) {
 
   if (props.pieces===undefined) {
@@ -32,7 +33,8 @@ function ContentArea(props) {
     return (
       < div id='content-area' >{
         content
-      }< / div >
+      }
+      < / div >
     )
   }
   else if (props.page==='categories') {
