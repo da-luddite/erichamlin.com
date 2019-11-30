@@ -34,7 +34,7 @@ const EricLightbox = ({
       onClose={onClose}
       images={images}
       currentIndex={currentImageIndex}
-      renderFooter={() => <Footer />}
+      renderFooter={() => <Footer text={images[currentImageIndex] ? images[currentImageIndex].caption : ''}/>}
       renderHeader={() => (
         <Header
           galleryTitle={title}
