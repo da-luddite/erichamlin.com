@@ -5,6 +5,9 @@ const graph = graphql("http://localhost:4000/graphql", {});
 const allPiecesQuery = `
   query {
     pieces {
+      project {
+        title
+      }
       pieceId
       title
       description

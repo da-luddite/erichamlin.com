@@ -11,10 +11,17 @@ class Piece {
     this.media = options.media;
     this.category = options.category;
     this.images = [];
+    this.project = new Project(options.projectTitle);
   }
 
   addImage(path, description) {
     this.images.push(new DisplayImage(path, description))
+  }
+}
+
+class Project {
+  constructor(title) {
+    this.title = title
   }
 }
 

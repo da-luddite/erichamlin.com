@@ -16,6 +16,7 @@ const EricLightbox = ({
   setCurrentIndex,
   isOpen,
   onClose,
+  project,
   title,
   description
 }) => {
@@ -37,11 +38,12 @@ const EricLightbox = ({
       renderFooter={() => <Footer text={images[currentImageIndex] ? images[currentImageIndex].caption : ''}/>}
       renderHeader={() => (
         <Header
-          galleryTitle={title}
+          project={project}
+          title={title}
           images={images}
           currentIndex={currentImageIndex}
           onClose={onClose}
-          gallerySubheading={description}
+          description={description}
         />
       )}
       renderPrevButton={({ canPrev }) => (

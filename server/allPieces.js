@@ -23,7 +23,8 @@ connection.query(allPiecesSql, (error, pieces, fields) => {
         dateCreated:   pieceData.date_created,
         dimensions:    pieceData.dimensions,
         category:      pieceData.category,
-        media:         pieceData.media
+        media:         pieceData.media,
+        projectTitle:  pieceData.project_title
       });
     }
 

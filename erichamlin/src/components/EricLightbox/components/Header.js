@@ -3,11 +3,12 @@ import styled from "styled-components";
 import { IoIosClose } from "react-icons/io";
 import ButtonControl from "./ButtonControl";
 
-const LightboxHeader = ({ galleryTitle, gallerySubheading, images, currentIndex, onClose }) => (
+const LightboxHeader = ({ project, title, description, images, currentIndex, onClose }) => (
   <TopHeaderBar>
     <LeftSideDescriptionContainer>
-      <GalleryHeading>{galleryTitle}</GalleryHeading>
-      <GallerySubheading>{gallerySubheading}</GallerySubheading>
+      <GalleryProject>{project}</GalleryProject>
+      <GalleryHeading>{title}</GalleryHeading>
+      <GallerySubheading>{description}</GallerySubheading>
     </LeftSideDescriptionContainer>
 
     <RightSideContainer>
@@ -22,6 +23,10 @@ const LightboxHeader = ({ galleryTitle, gallerySubheading, images, currentIndex,
 );
 
 export default LightboxHeader;
+
+const GalleryProject = styled.h5`
+  margin: 0 0 2px 0;
+`;
 
 const GalleryHeading = styled.h2`
   margin: 0 0 5px 0;

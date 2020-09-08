@@ -11,7 +11,9 @@ import Lightbox from './EricLightbox';
 
 export default function App()  {
 
+
   const openPiece = (piece) => {
+    setCurrentIndex(0);
     const images = piece.images.map((image) => {
       return {
         src: image.url,
@@ -24,7 +26,8 @@ export default function App()  {
     if (piece.media) description.push(piece.media);
     if (piece.dimensions) description.push(piece.dimensions);
     if (piece.description) description.push(piece.description);
-    setLightboxDescription(description.join('\n'));
+    setLightboxDescription(description.join("\n"));
+    setProject(piece.project.title);
 
     setLightboxTitle(piece.title);
     setLightboxImages(images);
@@ -36,6 +39,7 @@ export default function App()  {
   const [lightboxImages, setLightboxImages] = useState([]);
   const [lightboxTitle, setLightboxTitle] = useState("Eric Hamlin");
   const [lightboxDescription, setLightboxDescription] = useState("");
+  const [project, setProject] = useState("");
 
   return (
       <Provider store={store}>
@@ -52,6 +56,7 @@ export default function App()  {
             isOpen={isLightboxOpen}
             onClose={() => setLightboxOpen(false)}
             images={lightboxImages}
+            project={project}
             title={lightboxTitle}
             description={lightboxDescription}
           />
