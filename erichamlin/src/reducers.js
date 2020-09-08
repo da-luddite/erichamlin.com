@@ -1,16 +1,15 @@
 import { combineReducers } from 'redux'
 
-import { SWITCH_PAGE, STORE_PIECES } from "./actions.js";
+import {
+  SWITCH_PAGE,
+  STORE_PIECES,
+  STORE_CATEGORIES,
+  storeCategoriesActionWithDispatch
+} from "./actions.js";
 
-const initialState = {page: 'new', categories: {
-  'new': 0,
-  'concept': 1,
-  'storyboard': 2,
-  'illustration': 3,
-  'interactive': 4,
-  'comix': 5,
-  'other': 6
-}};
+import { queryCategories } from './queries.js'
+
+const initialState = {page: 'new', categories: {}};
 
 function switchPage(state, action) {
   if (typeof state === 'undefined') {
@@ -18,6 +17,17 @@ function switchPage(state, action) {
   }
   if (action.type === SWITCH_PAGE) {
     console.log("switching to " + action.page);
+
+    if (action.page == "categories") {
+      queryCategories().then(function (response) {
+        // response is originally response.data of query result
+        storeCategoriesActionWithDispatch(response.categories);
+      }).catch(function (error) {
+        // response is originally response.errors of query result
+        console.log(error)
+      });
+    }
+
     return Object.assign({}, state, {
       page: action.page
     })
@@ -46,14 +56,14 @@ function storePieces(state, action) {
     });
 
     let categoryIndex = pieces.map((currentValue) => currentValue.pieceId);
-    categoryIndex.sort((a,b) => {
-      // TODO
-      return state.categories[pieces[a].category] - state.categories[pieces[b].category];
-    });
-
-    for (let x in categoryIndex) {
-      console.log(pieces[categoryIndex[x]].category);
-    }
+    //categoryIndex.sort((a,b) => {
+    //  // TODO
+    //  return state.categories[pieces[a].category] - state.categories[pieces[b].category];
+    //});
+    //
+    //for (let x in categoryIndex) {
+    //  console.log(pieces[categoryIndex[x]].category);
+    //}
 
     return Object.assign({}, state, {
       pieces: pieces,
@@ -66,10 +76,28 @@ function storePieces(state, action) {
   }
 }
 
+function storeCategories(state, action) {
+  if (typeof state === 'undefined') {
+    return initialState
+  }
+
+  if (action.type = STORE_CATEGORIES) {
+    console.log("storing categories");
+
+    return Object.assign({}, state, {
+      categories: action.categories
+    })
+
+  } else {
+    return state;
+  }
+}
+
 
 const reducers = combineReducers({
   switchPage,
-  storePieces
+  storePieces,
+  storeCategories
 });
 
 

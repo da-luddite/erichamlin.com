@@ -23,7 +23,21 @@ const allPiecesQuery = `
   }
 `;
 
+const categoriesQuery = `
+  query {
+    categories {
+      categoryId
+      categoryName
+      categoryOrder
+    }
+  }
+`;
+
 export function queryAllPieces() {
   return graph.query.run(allPiecesQuery);
+}
+
+export function queryCategories() {
+  return graph.query.run(categoriesQuery)
 }
 

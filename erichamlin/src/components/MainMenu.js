@@ -9,7 +9,7 @@ export default class MainMenu extends Component {
         <MenuButton selection={"new"}/>
         <MenuButton selection={"categories"}/>
         <MenuButton selection={"bio"}/>
-        <a>Sketch/Blog</a>
+        <a href="http://erichamlin.com/wordpress/" target="_blank">Ephemera</a>
       </div>
     );
   }

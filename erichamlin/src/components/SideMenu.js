@@ -9,6 +9,7 @@ function SideMenu(props) {
   if (props.pieces===undefined) {
     return (<div id='side-menu'></div>);
   }
+
   else if (props.page === 'new') {
     let menuItems = [];
     let currentYear = 0;
@@ -26,23 +27,25 @@ function SideMenu(props) {
       <div id='side-menu'>
         {menuItems.map((item, idx) => { return <div><Link activeClass="active" to={"content-section-" + idx} offset={-300} spy={true} smooth={true}>{item}</Link></div>} )}
       </div>
-  )
+    )
   }
+
   else if (props.page === 'categories') {
     let menuItems = [];
-    for (let category in props.categories) {
-      menuItems.push(category);
+    for (let idx in props.categories) {
+      menuItems.push(props.categories[idx].categoryName);
     }
     return (
       <div id='side-menu'>
-      {menuItems.map((item) => { return <div>{item}</div> })}
+      { menuItems.map((item, idx)  => { return <div><Link activeClass="active" to={"content-section-" + idx} offset={-300} spy={true} smooth={true}>{item}</Link></div> } )}
       </div>
     )
   }
+
   else {
     return (
       <div id='side-menu'>nothing here</div>
-  )
+    )
   }
 }
 
@@ -51,7 +54,7 @@ export default connect((state) => {
     pieces: state.storePieces.pieces,
     dateIndex: state.storePieces.dateIndex,
     categoryIndex: state.storePieces.categoryIndex,
-    categories: state.storePieces.categories,
+    categories: state.storeCategories.categories,
     page: state.switchPage.page
   }
 })(SideMenu);

@@ -79,6 +79,12 @@ a {
 
 #main-menu a {
     margin-right: 15px;
+    color: #feffc1;
+    text-decoration:none;
+}
+
+#main-menu a:hover {
+    text-decoration:underline;
 }
 
 #side-menu {

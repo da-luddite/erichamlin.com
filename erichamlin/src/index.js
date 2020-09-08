@@ -8,8 +8,6 @@ import { queryAllPieces } from './queries.js';
 import App from './components/App';
 
 
-
-
 queryAllPieces().then(function (response) {
   // response is originally response.data of query result
   storePiecesActionWithDispatch(response.pieces);
