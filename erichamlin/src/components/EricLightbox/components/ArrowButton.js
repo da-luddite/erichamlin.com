@@ -30,12 +30,6 @@ const ArrowButton = ({ position, onClick, disabled }) => {
   );
 };
 
-//ArrowButton.propTypes = {
-//  position: PropTypes.oneOf(["left", "right"]).isRequired,
-//  onClick: PropTypes.func.isRequired,
-//  disabled: PropTypes.bool
-//};
-
 ArrowButton.defaultProps = {
   disabled: false
 };

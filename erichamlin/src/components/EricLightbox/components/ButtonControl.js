@@ -8,13 +8,13 @@ export default styled.button`
   cursor: pointer;
   padding: 0;
   margin: 0;
-  color: ${({ theme }) => theme.pageContentFontColor};
+  color: #fff;
   transition: color 0.2s linear;
   :hover {
-    color: ${({ theme }) => theme.pageContentLinkHoverColor};
+    color: #feffc1;
   }
   :focus {
     outline: none;
-    color: ${({ theme }) => theme.pageContentLinkHoverColor};
+    color: #fff;
   }
 `;
