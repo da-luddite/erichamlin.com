@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Cormorant&display=swap');
 
+/*
+colors:
+
+yellow: #feffc1
+dark blue: #101629 rgb(16, 22, 41)
+*/
+
 body {
   background-color: #101629;
   margin: 0;
@@ -10,6 +17,8 @@ body {
 
 a {
     cursor: pointer;
+    text-decoration: underline;
+    color: #feffc1;
 }
 
 #root {
@@ -150,8 +159,8 @@ a {
 }
 
 .thumbnail img:hover {
-    mix-blend-mode: multiply;
-    opacity: 0.7;
+    /*mix-blend-mode: multiply;*/
+    opacity: 0.2;
 }
 
 .thumbnail:nth-child(4),

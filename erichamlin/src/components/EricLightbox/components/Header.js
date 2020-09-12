@@ -8,7 +8,7 @@ const LightboxHeader = ({ project, title, description, images, currentIndex, onC
     <LeftSideDescriptionContainer>
       <GalleryProject>{project}</GalleryProject>
       <GalleryHeading>{title}</GalleryHeading>
-      <GallerySubheading>{description}</GallerySubheading>
+      <GallerySubheading dangerouslySetInnerHTML={{ __html: description }}/>
     </LeftSideDescriptionContainer>
 
     <RightSideContainer>
