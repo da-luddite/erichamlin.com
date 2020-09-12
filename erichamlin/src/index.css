@@ -138,6 +138,10 @@ a {
     color: #fff;
 }
 
+.thumbnail .project-title {
+    font-size: 16px;
+}
+
 .thumbnail img {
     position: absolute;
     z-index: 2;
@@ -154,5 +158,11 @@ a {
 .thumbnail:nth-child(7) {
     margin-right: 0px;
 }
+
+.lightbox-image-stage {
+    background: rgba(16, 22, 41, 0.9);
+    margin: 0 !important;
+}
+
 
 

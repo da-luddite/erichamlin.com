@@ -4,7 +4,11 @@ function Thumbnail(props) {
   const handleClick = () => { props.onClick(props.piece); };
 
   return (
-      <div class='thumbnail' onClick={handleClick}><img src={props.piece.thumbnail.url}/>{props.piece.title}</div>
+      <div class='thumbnail' onClick={handleClick}>
+        <img src={props.piece.thumbnail.url}/>
+        <div class="project-title">{props.piece.project.title}</div>
+        {props.piece.title}
+      </div>
   );
 }
 
