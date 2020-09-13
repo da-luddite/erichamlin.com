@@ -1,10 +1,10 @@
 let express = require('express');
-let config = require('./config');
+let config = require('../config');
 var cors = require('cors');
 let express_graphql = require('express-graphql');
-let schema = require('./server/schema').default;
-let allPieces = require('./server/allPieces');
-let categories = require('./server/categories');
+let schema = require('./schema').default;
+let allPieces = require('./allPieces');
+let categories = require('./categories');
 
 // Root resolver
 let root = {
