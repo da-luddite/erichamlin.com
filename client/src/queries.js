@@ -1,6 +1,7 @@
 import graphql from 'graphql.js';
+import config from 'config'
 
-const graph = graphql("http://localhost:4000/graphql", {});
+const graph = graphql(config.graphQlUrl, {});
 
 const allPiecesQuery = `
   query {
