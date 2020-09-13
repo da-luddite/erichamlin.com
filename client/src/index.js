@@ -9,7 +9,7 @@ import App from './components/App';
 
 
 queryAllPieces().then(function (response) {
-  // response is originally response.data of query result
+  console.error(response)
   storePiecesActionWithDispatch(response.pieces);
 }).catch(function (error) {
   // response is originally response.errors of query result

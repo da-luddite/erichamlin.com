@@ -4,3 +4,6 @@
 */design
 *.iml
 config.js
+asset-manifest.json
+index.html
+/static

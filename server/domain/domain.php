@@ -1,4 +1,5 @@
 <?php
+require('config.php');
 
 class Project {
     public $id;
@@ -11,24 +12,64 @@ class Project {
 }
 
 class Piece {
-    public $id;
+    public $pieceId;
     public $title;
     public $description;
     public $media;
     public $sequence;
-    public $date_created;
-    public $thumbnail_path;
+    public $dateCreated;
+    public $thumbnail;
     public $dimensions;
+    public $projectTitle;
+    public $images = [];
 
-    public function __construct($id, $title, $description, $media, $sequence, $date_created, $thumbnail_path, $dimensions) {
-        $this->id = $id;
-        $this->title = $title;
+    public function __construct(
+        $id,
+        $title,
+        $description,
+        $media,
+        $sequence,
+        $date_created,
+        $thumbnail_path,
+        $dimensions,
+        $projectTitle
+        ) {
+            $this->pieceId = $id;
+            $this->title = $title;
+            $this->description = $description;
+            $this->media = $media;
+            $this->sequence = $sequence;
+            $this->dateCreated = $date_created;
+            $this->thumbnail = new Thumbnail($thumbnail_path);
+            $this->dimensions = $dimensions;
+            $this->projectTitle = $projectTitle;
+    }
+
+    function addImage($path, $description) {
+        $this->images[] = new DisplayImage($path, $description);
+    }
+}
+
+class Image {
+    public $url;
+
+    public function __construct($url) {
+        $this->url = $url;
+    }
+}
+
+class DisplayImage extends Image {
+    public $description;
+
+    public function __construct($path, $description) {
+        parent::__construct(BASE_URL . '/images/pieces/' . $path);
         $this->description = $description;
-        $this->media = $media;
-        $this->sequence = $sequence;
-        $this->date_created = $date_created;
-        $this->thumbnail_path = $thumbnail_path;
-        $this->dimensions = $dimensions;
+    }
+}
+
+class Thumbnail extends Image {
+    public function __construct($path) {
+        parent::__construct(BASE_URL . '/images/thumbnails/' . $path);
     }
 }
 

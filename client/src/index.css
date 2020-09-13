@@ -69,7 +69,7 @@ a {
 }
 
 #signature {
-    background-image: url("http://localhost:4000/images/site/signature.png");
+    background-image: url("/images/site/signature.png");
     width: 417px;
     height: 212px;
 }

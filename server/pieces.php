@@ -27,17 +27,24 @@ $result = $mysqli->query($sql);
 
 $pieces = [];
 while($row = $result->fetch_assoc()) {
-    $pieces[] =
-        new Piece(
-            $row['piece_id'],
-            $row['title'],
-            $row['description'],
-            $row['media'],
-            $row['piece_sequence'],
-            $row['date_created'],
-            $row['thumbnail_path'],
-            $row['dimensions']
-        );
+    if ($pieces[$row['piece_id']]) {
+        $piece = $pieces[$row['piece_id']];
+    } else {
+        $piece =
+            new Piece(
+                $row['piece_id'],
+                $row['title'],
+                $row['description'],
+                $row['media'],
+                $row['piece_sequence'],
+                $row['date_created'],
+                $row['thumbnail_path'],
+                $row['dimensions'],
+                $row['project_title']
+            );
+        $pieces[$row['piece_id']] = $piece;
+    }
+    $piece->addImage($row['image_path'], $row['image_description']);
 }
 
 header('Content-type: application/json');

@@ -1,47 +1,10 @@
-import graphql from 'graphql.js';
-import config from 'config'
-
-const graph = graphql(config.graphQlUrl, {});
-
-const allPiecesQuery = `
-  query {
-    pieces {
-      project {
-        title
-      }
-      pieceId
-      title
-      description
-      dimensions
-      media
-      dateCreated
-      category
-      thumbnail { 
-        url 
-      }
-      images {
-        url 
-        description
-      }
-    }
-  }
-`;
-
-const categoriesQuery = `
-  query {
-    categories {
-      categoryId
-      categoryName
-      categoryOrder
-    }
-  }
-`;
+import { config } from './config'
 
 export function queryAllPieces() {
-  return graph.query.run(allPiecesQuery);
+  return fetch("http://erichamlin.com/server/pieces.php");
 }
 
 export function queryCategories() {
-  return graph.query.run(categoriesQuery)
+  return
 }
 
