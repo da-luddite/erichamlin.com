@@ -1,5 +1,5 @@
 let express = require('express');
-let config = require('../config');
+let config = require('./config');
 var cors = require('cors');
 let express_graphql = require('express-graphql');
 let schema = require('./schema').default;

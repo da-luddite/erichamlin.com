@@ -1,4 +1,4 @@
-let config = require('../config');
+let config = require('./config');
 
 class Piece {
   constructor(options) {
