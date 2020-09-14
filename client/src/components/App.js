@@ -27,7 +27,7 @@ export default function App()  {
     if (piece.dimensions) description.push(piece.dimensions);
     if (piece.description) description.push(piece.description);
     setLightboxDescription(description.join("\n"));
-    setProject(piece.project.title);
+    setProject(piece.projectTitle);
 
     setLightboxTitle(piece.title);
     setLightboxImages(images);

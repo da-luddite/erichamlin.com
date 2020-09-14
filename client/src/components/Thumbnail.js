@@ -6,7 +6,7 @@ function Thumbnail(props) {
   return (
       <div class='thumbnail' onClick={handleClick}>
         <img src={props.piece.thumbnail.url}/>
-        <div class="project-title">{props.piece.project.title}</div>
+        <div class="project-title">{props.piece.projectTitle}</div>
         {props.piece.title}
       </div>
   );

@@ -34,12 +34,14 @@ class Piece {
         $dimensions,
         $projectTitle
         ) {
+            $dateTimeCreated = DateTime::createFromFormat('Y-m-d' , $date_created);
+
             $this->pieceId = $id;
             $this->title = $title;
             $this->description = $description;
             $this->media = $media;
             $this->sequence = $sequence;
-            $this->dateCreated = $date_created;
+            $this->dateCreated = $dateTimeCreated->getTimestamp() * 1000;
             $this->thumbnail = new Thumbnail($thumbnail_path);
             $this->dimensions = $dimensions;
             $this->projectTitle = $projectTitle;

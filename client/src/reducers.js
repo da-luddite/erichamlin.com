@@ -20,10 +20,8 @@ function switchPage(state, action) {
 
     if (action.page == "categories") {
       queryCategories().then(function (response) {
-        // response is originally response.data of query result
         storeCategoriesActionWithDispatch(response.categories);
       }).catch(function (error) {
-        // response is originally response.errors of query result
         console.log(error)
       });
     }
@@ -46,6 +44,7 @@ function storePieces(state, action) {
     console.log("storing pieces");
 
     const pieces = [];
+
     action.pieces.forEach((currentValue) => {
       pieces[currentValue.pieceId] = currentValue;
     });
@@ -64,6 +63,8 @@ function storePieces(state, action) {
     //for (let x in categoryIndex) {
     //  console.log(pieces[categoryIndex[x]].category);
     //}
+
+    console.error(dateIndex);
 
     return Object.assign({}, state, {
       pieces: pieces,

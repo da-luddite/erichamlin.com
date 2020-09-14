@@ -8,11 +8,9 @@ import { queryAllPieces } from './queries.js';
 import App from './components/App';
 
 
-queryAllPieces().then(function (response) {
-  console.error(response)
-  storePiecesActionWithDispatch(response.pieces);
-}).catch(function (error) {
-  // response is originally response.errors of query result
+queryAllPieces().then(async (response) => {
+  storePiecesActionWithDispatch(await response.json());
+}).catch((error) => {
   console.log(error)
 });
 

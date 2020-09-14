@@ -1,4 +1,6 @@
 <?php
+//ini_set('display_errors', 1);
+
 require('domain/domain.php');
 require('db.php');
 
@@ -48,6 +50,6 @@ while($row = $result->fetch_assoc()) {
 }
 
 header('Content-type: application/json');
-echo json_encode($pieces);
+echo json_encode(array_values($pieces));
 
 ?>
