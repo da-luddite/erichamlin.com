@@ -1,0 +1,47 @@
+header {
+    background-color: #eee;
+    padding: 5px 10px;
+}
+
+td {
+    padding: 5px 10px;
+}
+
+.piece-container, .project-container {
+    padding-left: 50px;
+}
+
+.client-row {
+    background-color: #eee;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.client-row:hover, .project-row:hover, .piece-row:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.project-row {
+    font-size: 16px;
+    background-color: #ddd;
+}
+
+.piece-row {
+    font-size: 14px;
+    background-color: #ccc;
+}
+
+form td {
+    vertical-align: top;
+}
+
+input[type=text] {
+    width: 400px;
+}
+
+textarea {
+    width:400px;
+    height:100px;
+}
+
