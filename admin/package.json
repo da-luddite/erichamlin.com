@@ -1,0 +1,14 @@
+{
+  "name": "com.erichamlin.admin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eric Hamlin",
+  "license": "ISC",
+  "dependencies": {
+    "file-upload-with-preview": "^4.0.8"
+  }
+}

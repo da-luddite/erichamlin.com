@@ -1,4 +1,9 @@
-<link rel="stylesheet" href="admin.css">
+<html>
+<head>
+    <link rel="stylesheet" href="admin.css" type="text/css" />
+</head>
+
+<body>
 <table>
     <? foreach($clients as $client) { ?>
         <tr class='client-row' onclick="editClient(<?=$client['client_id']?>);">
@@ -11,7 +16,8 @@
                             <td><?=$project['project_title']?>&nbsp;</td>
                         </tr>
                         <tr>
-                            <td class="piece-container"><table style="width: 100%;">
+                            <td class="piece-container">
+                                <table style="width: 100%;">
                                     <? foreach($project['pieces'] as $piece) { ?>
                                         <tr class='piece-row' onclick="editPiece(<?=$piece['piece_id']?>);">
                                             <td><?=$piece['title']?></td>
@@ -39,3 +45,6 @@
         window.location = "piece.php?piece_id=" + pieceId;
     }
 </script>
+
+</body>
+</html>

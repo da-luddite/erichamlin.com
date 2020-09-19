@@ -1,5 +1,5 @@
 <?php
-require("../db.php");
+require($_SERVER['DOCUMENT_ROOT'] . "/db.php");
 
 $select_clients_sql = "
     SELECT
@@ -31,6 +31,8 @@ while($project_row = $projects_result->fetch_assoc()) {
     $projects[$project_id] = $project_row;
 }
 
+
+
 $select_pieces_sql = "
     SELECT
       pieces.*
@@ -51,5 +53,4 @@ foreach($projects as $project) {
     $clients[$client_id]['projects'][] = $project;
 }
 
-include('index_form.php');
-?>
+include ("index_form.php");

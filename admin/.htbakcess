@@ -1,0 +1,5 @@
+AuthType Basic
+AuthName "Abandon Hope"
+AuthBasicProvider file
+AuthUserFile "passwords"
+Require user zycroe

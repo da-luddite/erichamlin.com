@@ -1,5 +1,5 @@
 <?php
-require("../db.php");
+require($_SERVER['DOCUMENT_ROOT'] . "/db.php");
 require("DAO.php");
 
 if ($_POST['piece_id']) {
