@@ -1,8 +1,8 @@
 <?php
 //ini_set('display_errors', 1);
 
-require('domain/domain.php');
-require('db.php');
+require('domain.php');
+require('../db.php');
 
 $sql = <<<SQL
 
