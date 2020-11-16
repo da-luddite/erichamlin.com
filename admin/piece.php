@@ -2,6 +2,8 @@
 require($_SERVER['DOCUMENT_ROOT'] . "/db.php");
 require("DAO.php");
 
+const PIECES_IMAGE_PATH = "../images/pieces/";
+
 if ($_POST['piece_id']) {
     $piece_id = $_POST['piece_id'];
     $project_id = $_POST['project_id'];
@@ -13,9 +15,16 @@ if ($_POST['piece_id']) {
     $piece['date_created'] = $_POST['date_created'];
     $piece['dimensions'] = $_POST['dimensions'];
 
+    $images = $_POST['images'];
 
+    foreach($_FILES as $imageId => $file) {
+        if ($file['size'] > 0) {
+            copy($file['tmp_name'], PIECES_IMAGE_PATH . $file['name']);
+            $images[$imageId]['image_path'] = $file['name'];
+        }
+    }
 
-    foreach($_POST['images'] as $imageId => $image) {
+    foreach($images as $imageId => $image) {
         replaceImage($imageId, $image['image_path'], $image['image_description'], $image['image_sequence'], $piece_id);
     }
 
@@ -24,6 +33,7 @@ if ($_POST['piece_id']) {
     }
 
     list($piece, $images) = getPiece($piece_id);
+
     include("piece_form.php");
 
 } elseif ($_GET['piece_id']) {

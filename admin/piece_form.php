@@ -1,51 +1,14 @@
 <html>
 <head>
     <link rel="stylesheet" href="admin.css" type="text/css" />
-    <link rel="stylesheet" href="https://unpkg.com/file-upload-with-preview@4.0.2/dist/file-upload-with-preview.min.css" type="text/css"/>
-    <script src="https://unpkg.com/file-upload-with-preview@4.0.2/dist/file-upload-with-preview.min.js"></script>
-    <script>
-        function showImageUploader() {
-            alert("image uploader");
-        }
-        function addImage(imageId, imagePath="", imageDescription="", imageSequence=0) {
-            if(!imageId) {
-                imageId = Math.round((Math.random() * 100)) + 10000;
-            }
-            let tr = document.createElement("tr");
-            tr.id = `image-${imageId}`;
-            tr.innerHTML = `
-                <input type="hidden" name="images[${imageId}][image_sequence]" value="${imageSequence}"/>
-                <input type="hidden" name="images[${imageId}][image_path]" value="${imagePath}"/>
-                <td><img src="/images/pieces/${imagePath}" height="100" onclick="showImageUploader();"/></td>
-                <td>
-                    <textarea name="images[${imageId}][image_description]" style="width:400px; height:100px;">${imageDescription}</textarea>
-                </td>
-                <td>
-                    <a href="#" onclick="deleteImage(${imageId}); return false;">Delete</a>
-                </td>
-            `;
-            document.getElementById("images").appendChild(tr);
-        }
-
-        function deleteImage(imageId) {
-            if (confirm("Do you want to delete this image?")) {
-                document.getElementById('image-' + imageId).remove();
-
-                let deleted = document.createElement("input");
-                deleted.setAttribute("type", "hidden");
-                deleted.setAttribute("name", "deletedImages[]");
-                deleted.setAttribute("value", imageId);
-                document.getElementById("piece-form").appendChild(deleted);
-            }
-        }
-    </script>
+    <script src="javascript/piece.js"></script>
 </head>
 <body>
     <header>
         <a href="index.php">&lt;&lt;</a>
         <span><? if ($piece_id) { echo "Editing Piece $piece_id"; } else { echo "New Piece for <i>$project[project_title]</i>"; } ?></span>
     </header>
-    <form action="piece.php" method="post" id="piece-form">
+    <form action="piece.php" method="post" id="piece-form" enctype="multipart/form-data">
         <input type="hidden" name="piece_id" value="<?=$piece_id?>"/>
         <input type="hidden" name="project_id" value="<?=$project_id?>"/>
         <table>
@@ -71,9 +34,7 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <table id="images">
-
-                    </table>
+                    <table id="images"></table>
                 </td>
             </tr>
             <tr>
@@ -85,22 +46,12 @@
         </table>
     </form>
 
-    <div class="custom-file-container" data-upload-id="image-upload">
-        <label>Upload File <a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image">&times;</a></label>
-        <label class="custom-file-container__custom-file" >
-            <input type="file" class="custom-file-container__custom-file__custom-file-input" accept="*" multiple aria-label="Choose File">
-            <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
-            <span class="custom-file-container__custom-file__custom-file-control"></span>
-        </label>
-        <div class="custom-file-container__image-preview"></div>
-    </div>
 
 <script>
     <? foreach($images as $image) {
         extract($image);
         echo "addImage($image_id, \"$image_path\", \"$image_description\", $image_sequence);\n";
     } ?>
-    var upload = new FileUploadWithPreview('image-upload', {maxFileCount: 1});
 </script>
 </body>
 </html>

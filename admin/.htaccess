@@ -1,0 +1,5 @@
+AuthType Basic
+AuthName "Abandon Hope"
+AuthBasicProvider file
+AuthUserFile "/Users/erichamlin/work/odiousenterprises/erichamlin.com/admin/passwords"
+Require user zycroe
