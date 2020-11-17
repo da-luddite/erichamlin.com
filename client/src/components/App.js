@@ -45,7 +45,6 @@ export default function App()  {
       <Provider store={store}>
         <div className="App">
             <div id='header'>
-            <div id="signature"/>
             <div id="name">Eric Hamlin</div>
             <MainMenu/>
           </div>
