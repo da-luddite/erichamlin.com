@@ -3,25 +3,37 @@
 /*
 colors:
 
+white: #fff
 yellow: #feffc1
 dark blue: #101629 rgb(16, 22, 41)
 */
+:root {
+    --color-bg: #101629;
+    --color-bg-translucent: rgba(16, 22, 41, 0.7);
+    --color-accent: #feffc1;
+    --color-accent-dark: #6e4733;
+    --color-primary: #fff;
+}
 
 body {
-  background-color: #101629;
-  margin: 0;
-  padding: 0;
-  color: #fff;
-  font-family: Cormorant, serif;
+    background-color: var(--color-bg);
+    margin: 0;
+    padding: 0;
+    color: var(--color-primary);
+    font-family: Cormorant, serif;
+    background-image: url("/images/site/signature.png");
+    background-repeat: no-repeat;
+    background-position: center 25px;
+    background-attachment: fixed;
 }
 
 a {
     cursor: pointer;
     text-decoration: underline;
-    color: #feffc1;
+    color: var(--color-accent);
 }
 
-#root {
+#app {
     text-align: center;
 }
 
@@ -50,17 +62,16 @@ a {
 
 #header {
     width: 800px;
-    height: 160px;
+    height: 180px;
     position: fixed;
     font-size: 50px;
-    color: #feffc1;
+    color: var(--color-accent);
     text-align: center;
     z-index: 10;
-    background-color: #101629;
+    background-color: var(--color-bg);
     background-image: url("/images/site/signature.png");
     background-repeat: no-repeat;
-    background-position: 30% 10%;
-    background-size: 40%;
+    background-position: center 25px;
 }
 
 #header div#name {
@@ -70,16 +81,17 @@ a {
 
 #header div#main-menu {
     width: 100%;
-    border-top: 1px solid #fff;
-    border-bottom: 1px solid #fff;
+    border-top: 1px solid var(--color-primary);;
+    border-bottom: 1px solid var(--color-primary);;
     font-size: 22px;
     position: absolute;
     bottom: 0px;
+    background-color: var(--color-bg-translucent);
 }
 
 #main-menu a {
     margin-right: 30px;
-    color: #feffc1;
+    color: var(--color-accent);
     text-decoration:none;
 }
 
@@ -97,11 +109,11 @@ a {
 
 #side-menu a {
     text-decoration: none;
-    color: #fff;
+    color: var(--color-primary);
 }
 
 #side-menu a:hover, #side-menu a:active, #side-menu a.active {
-    color: #feffc1;
+    color: var(--color-accent);
     font-weight: bold;
 }
 
@@ -113,7 +125,7 @@ a {
 }
 
 .divider {
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid var(--color-primary);
     font-size: 30px;
     font-weight: bold;
     padding: 5px 0 5px 0;
@@ -128,13 +140,13 @@ a {
     margin: 0 10px 10px 0;
     width: 190px;
     height: 190px;
-    background-color: #6e4733;
+    background-color: var(--color-accent-dark);
     background-blend-mode: screen;
     padding: 10px;
     box-sizing: border-box;
     font-size: 24px;
     font-weight: bold;
-    color: #fff;
+    color: var(--color-primary);
     overflow: hidden;
 }
 
@@ -153,7 +165,6 @@ a {
 }
 
 .thumbnail img:hover {
-    /*mix-blend-mode: multiply;*/
     left: -15px;
     top: -15px;
     opacity: 0.2;
@@ -167,7 +178,7 @@ a {
 }
 
 .lightbox-image-stage {
-    background: rgba(16, 22, 41, 0.9);
+    background: var(--color-bg-translucent);
     margin: 0 !important;
 }
 
