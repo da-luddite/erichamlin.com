@@ -72,13 +72,12 @@ const LeftSideDescriptionContainer = styled.div`
 `;
 
 const TopHeaderBar = styled.header`
-  z-index: 10;
   cursor: auto;
   display: flex;
   justify-content: space-between;
-  padding: 10px 2px 10px 20px;
+  padding: 10px 2px 20px 30px;
   color: #fff;
-  background-color: #000;
+  background-color: var(--color-bg-semitranslucent);
   > * {
     height: inherit;
   }
