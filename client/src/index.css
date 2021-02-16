@@ -39,7 +39,7 @@ a {
 }
 
 .App {
-    width: 800px;
+    max-width: 800px;
     position: relative;
     margin: 0 auto;
     z-index: 10;
@@ -120,7 +120,7 @@ a {
 
 #content-area {
     display: inline-block;
-    width: 590px;
+    max-width: 590px;
     position: absolute;
     right: -800px;
 }
@@ -185,5 +185,30 @@ a {
 
 .lightbox-image {
     margin-top: -30px;
+}
+
+@media only screen and (max-width: 768px) {
+    #header {
+        width: 100%;
+    }
+
+    #main-body {
+        position: relative;
+    }
+    #side-menu {
+        display: none;
+    }
+
+    #content-area {
+        width: 100%;
+        right: 0px;
+        left: 0px;
+        text-align: center;
+    }
+
+    .App {
+        width: 100%;
+
+    }
 }
 
