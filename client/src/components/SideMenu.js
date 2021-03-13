@@ -44,7 +44,10 @@ function SideMenu(props) {
 
   else {
     return (
-      <div id='side-menu'>nothing here</div>
+      <div id='side-menu'>
+        <div><Link activeClass="active" to={"content-section-bio"} offset={-300} spy={true} smooth={true}>Bio</Link></div>
+        <div><Link activeClass="active" to={"content-section-statement"} offset={-300} spy={true} smooth={true}>Statement</Link></div>
+      </div>
     )
   }
 }

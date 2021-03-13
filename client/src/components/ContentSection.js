@@ -3,10 +3,15 @@ import Thumbnail from './Thumbnail.js';
 import Divider from './Divider.js';
 
 function ContentSection(props) {
-  let content = [];
-  for (let i in props.pieces) {
-    let piece = props.pieces[i];
-    content.push(<Thumbnail piece={piece} onClick={props.onClickThumbnail}/>);
+  let content;
+  if (props.children) {
+    content = props.children;
+  } else {
+    content = [];
+    for (let i in props.pieces) {
+      let piece = props.pieces[i];
+      content.push(<Thumbnail piece={piece} onClick={props.onClickThumbnail}/>);
+    }
   }
 
   return (
