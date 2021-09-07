@@ -9,6 +9,6 @@
   "author": "Eric Hamlin",
   "license": "ISC",
   "dependencies": {
-    "file-upload-with-preview": "^4.0.8"
+    "file-upload-with-preview": "^4.2.0"
   }
 }
