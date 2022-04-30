@@ -1,5 +1,5 @@
-export const constants  = {
+export const constants = {
   new: "Work",
-  bio: "Bio",
+  bio: "About",
   blog: "Ephemera"
 };

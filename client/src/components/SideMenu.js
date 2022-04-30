@@ -6,7 +6,7 @@ let Link = Scroll.Link;
 
 function SideMenu(props) {
 
-  if (props.pieces===undefined) {
+  if (props.pieces === undefined) {
     return (<div id='side-menu'></div>);
   }
 
@@ -25,7 +25,7 @@ function SideMenu(props) {
     }
     return (
       <div id='side-menu'>
-        {menuItems.map((item, idx) => { return <div><Link activeClass="active" to={"content-section-" + idx} offset={-300} spy={true} smooth={true}>{item}</Link></div>} )}
+        {menuItems.map((item, idx) => { return <div><Link activeClass="active" to={"content-section-" + idx} offset={-300} spy={true} smooth={true}>{item}</Link></div> })}
       </div>
     )
   }
@@ -37,7 +37,7 @@ function SideMenu(props) {
     }
     return (
       <div id='side-menu'>
-      { menuItems.map((item, idx)  => { return <div><Link activeClass="active" to={"content-section-" + idx} offset={-300} spy={true} smooth={true}>{item}</Link></div> } )}
+        {menuItems.map((item, idx) => { return <div><Link activeClass="active" to={"content-section-" + idx} offset={-300} spy={true} smooth={true}>{item}</Link></div> })}
       </div>
     )
   }
@@ -45,6 +45,7 @@ function SideMenu(props) {
   else {
     return (
       <div id='side-menu'>
+        <div><Link activeClass="active" to={"content-section-exhibitions"} offset={-300} spy={true} smooth={true}>Exhibitions</Link></div>
         <div><Link activeClass="active" to={"content-section-bio"} offset={-300} spy={true} smooth={true}>Bio</Link></div>
         <div><Link activeClass="active" to={"content-section-statement"} offset={-300} spy={true} smooth={true}>Statement</Link></div>
       </div>
