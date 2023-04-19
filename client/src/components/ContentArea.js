@@ -70,10 +70,15 @@ function contentAreaCategories(props) {
 
 function contentAreaBio(props) {
   let exhibitions = <div>
-    <table>
+    <table class='exhibitions'>
+    <tr>
+        <td>2022</td>
+        <td>Group Exhibition, <em>Voices and Visions</em>, The Art Center, Highland Park, IL
+        </td>
+      </tr>
       <tr>
         <td>2022</td>
-        <td>Group Exhibition, <em>Made in California</em>, Brea Gallery, Brea, CA
+        <td>Group Exhibition, <em>Made in California</em>, Brea Gallery, Brea, CA <em>Staff Pick Award</em>
         </td>
       </tr>
       <tr>
@@ -129,7 +134,7 @@ function contentAreaBio(props) {
   </div>
   return (
     <div id='content-area' >
-      <ContentSection title="Exhibitions" sectionIndex="bio">{exhibitions}</ContentSection>
+      <ContentSection title="Exhibitions" sectionIndex="exhibitions">{exhibitions}</ContentSection>
       <ContentSection title="Bio" sectionIndex="bio">{bio}</ContentSection>
       <ContentSection title="Statement" sectionIndex="statement">{statement}</ContentSection>
     </div>
